@@ -14,10 +14,10 @@ const signature = Great_Vibes({
 });
 
 export default function VideoQuoteSection() {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const el = sectionRef.current;
+    const el = sectionRef.current as HTMLElement | null;
     if (!el) return;
 
     const observer = new IntersectionObserver(
