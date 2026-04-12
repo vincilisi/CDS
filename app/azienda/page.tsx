@@ -8,15 +8,15 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function AziendaPage() {
-  const [visible, setVisible] = useState({});
-  const sectionsRef = useRef([]);
+  const [visible, setVisible] = useState<Record<string, boolean>>({});
+  const sectionsRef = useRef<HTMLElement[]>([]);
 
   // Intersection Observer con reset (funziona su e giù)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const id = entry.target.dataset.id;
+          const id = (entry.target as HTMLElement).dataset.id!;
 
           if (entry.isIntersecting) {
             setVisible((prev) => ({ ...prev, [id]: true }));
@@ -33,7 +33,7 @@ export default function AziendaPage() {
     return () => observer.disconnect();
   }, []);
 
-  const addRef = (el) => {
+  const addRef = (el: HTMLElement | null) => {
     if (el && !sectionsRef.current.includes(el)) {
       sectionsRef.current.push(el);
     }
