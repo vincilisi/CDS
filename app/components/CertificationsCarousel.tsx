@@ -15,16 +15,20 @@ const certifications = [
 ];
 
 export default function CertificationsCarousel() {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const [modalImg, setModalImg] = useState<string | null>(null);
 
   useEffect(() => {
-    const el = sectionRef.current;
+    const el = sectionRef.current as HTMLElement | null;
     if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) el.classList.add("opacity-100", "translate-y-0");
+        if (entry.isIntersecting) {
+          el.classList.add("opacity-100", "translate-y-0");
+        } else {
+          el.classList.remove("opacity-100", "translate-y-0");
+        }
       },
       { threshold: 0.2 }
     );
