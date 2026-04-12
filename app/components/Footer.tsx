@@ -38,10 +38,10 @@ export default function Footer() {
       )}
 
       {/* FOOTER */}
-      <footer className="bg-[#0d0d0d] text-gray-300 pt-10 pb-6 h-[5vh]">
+      <footer className="bg-[#0d0d0d] text-gray-300 pt-10 pb-6">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
 
-          {/* COLONNA SINISTRA — CONTATTI + LOGHI (TUTTO CENTRATO) */}
+          {/* COLONNA SINISTRA — CONTATTI + LOGHI */}
           <div className="flex flex-col items-center text-center space-y-6">
 
             {/* CONTATTI */}
@@ -56,7 +56,7 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* LOGHI CENTRATI */}
+            {/* LOGHI */}
             <div className="flex items-center justify-center gap-6 pt-2">
               <Image
                 src="/media/logo-cds-vigilanza-2019-bianco.png"
@@ -76,7 +76,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* COLONNA DESTRA — INFO AZIENDALI + MAPPA (TUTTO CENTRATO) */}
+          {/* COLONNA DESTRA — INFO + MAPPA */}
           <div className="flex flex-col items-center text-center space-y-6">
 
             {/* INFO AZIENDALI */}
@@ -92,7 +92,7 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* MAPPA PICCOLA QUADRATA CENTRATA */}
+            {/* MAPPA PICCOLA */}
             <div
               className="relative w-32 h-32 rounded-xl overflow-hidden border border-white/10 backdrop-blur-md bg-white/5 shadow-xl cursor-pointer group"
               onClick={() => setOpenMap(true)}
