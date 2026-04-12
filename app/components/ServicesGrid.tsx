@@ -3,10 +3,17 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export default function ServicesGrid() {
-  const [active, setActive] = useState(null);
+interface Service {
+  id: number;
+  title: string;
+  image: string;
+  text: string;
+}
 
-  const services = [
+export default function ServicesGrid() {
+  const [active, setActive] = useState<Service | null>(null);
+
+  const services: Service[] = [
     {
       id: 1,
       title: "Centrale Operativa",
@@ -70,7 +77,7 @@ export default function ServicesGrid() {
       <div className="absolute inset-0 bg-black/70"></div>
 
       <div className="relative z-10">
-        
+
         {/* GRID NORMALE */}
         {!active && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -107,10 +114,8 @@ export default function ServicesGrid() {
               Torna ai servizi
             </button>
 
-            {/* CONTENITORE UNICO */}
             <div className="w-full max-w-3xl mx-auto">
 
-              {/* IMMAGINE NON ARROTONDATA + STESSA LARGHEZZA */}
               <div className="relative w-full h-[350px] overflow-hidden mb-6">
                 <Image
                   src={active.image}
@@ -120,7 +125,6 @@ export default function ServicesGrid() {
                 />
               </div>
 
-              {/* BOX TESTO STESSA LARGHEZZA */}
               <div className="p-8 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 text-left">
                 <h2 className="text-3xl font-bold mb-4 text-white">
                   {active.title}
