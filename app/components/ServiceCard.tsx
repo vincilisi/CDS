@@ -51,7 +51,7 @@ export default function ServiceCard({ image, alt, tag, title, text }: ServiceCar
           src={image}
           alt={alt}
           width={600}
-          height={400}
+          height={200}
           className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
         />
       </div>
@@ -59,15 +59,12 @@ export default function ServiceCard({ image, alt, tag, title, text }: ServiceCar
       <div className="p-8 text-center flex flex-col flex-grow">
         <p className="text-blue-800 font-semibold mb-1">{tag}</p>
 
-        <h3 className="text-2xl font-extrabold text-gray-900 mb-4">
+        <h3 className="text-2xl font-extrabold text-gray-900 mb-2">
           {title}
         </h3>
 
         <p className="text-gray-700 mb-6 flex-grow">{text}</p>
 
-        <button className="bg-blue-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-800 transition">
-          LEGGI TUTTO
-        </button>
       </div>
     </div>
   );
