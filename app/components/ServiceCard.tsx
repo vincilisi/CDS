@@ -3,25 +3,36 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-export default function ServiceCard({ image, alt, tag, title, text }) {
-  const ref = useRef(null);
+interface ServiceCardProps {
+  image: string;
+  alt: string;
+  tag: string;
+  title: string;
+  text: string;
+}
+
+export default function ServiceCard({ image, alt, tag, title, text }: ServiceCardProps) {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisible(true);   // attiva animazione
+            setVisible(true);
           } else {
-            setVisible(false);  // resetta animazione
+            setVisible(false);
           }
         });
       },
       { threshold: 0.3 }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
@@ -31,7 +42,6 @@ export default function ServiceCard({ image, alt, tag, title, text }) {
       className={`
         group bg-white shadow-lg rounded-xl overflow-hidden max-w-sm w-full
         transition-all duration-700 hover:-translate-y-2 flex flex-col
-
         ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
       `}
       style={{ minHeight: "550px" }}
@@ -40,8 +50,9 @@ export default function ServiceCard({ image, alt, tag, title, text }) {
         <Image
           src={image}
           alt={alt}
+          width={600}
+          height={400}
           className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
-          placeholder="blur"
         />
       </div>
 
