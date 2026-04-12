@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image, { type ImageProps } from "next/image";
 
 interface ServiceCardProps {
-  image: string;
+  image: ImageProps["src"];
   alt: string;
   tag: string;
   title: string;
