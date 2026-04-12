@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Istituto di Vigilanza CDS — Website
 
-## Getting Started
+Sito ufficiale dell’Istituto di Vigilanza **CDS – Costantini Divisione Sicurezza**, sviluppato in **Next.js 14**, con un design istituzionale, moderno e premium.  
+Il progetto integra animazioni avanzate, componenti modulari e un’estetica coerente con l’identità aziendale.
 
-First, run the development server:
+---
 
-```bash
+## 💞 Tecnologie utilizzate
+
+- **Next.js 14 (App Router)**
+- **React 18**
+- **TailwindCSS**
+- **IntersectionObserver API** per animazioni on-scroll
+- **Next/Image** per ottimizzazione immagini
+- **CSS 3D Transform** per effetti avanzati (Cubo News)
+- **Componenti modulari** (Navbar, Footer, BackToTop, NewsCube)
+
+---
+
+## 🍀 Struttura del Progetto
+
+app/
+├── components/
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   ├── BackToTop.tsx
+│   ├── NewsCube.tsx
+│
+├── azienda/
+│   └── page.tsx
+│
+├── page.tsx (Home)
+│
+public/
+└── media/ (immagini del sito)
+
+
+---
+
+## ✨ Animazioni Implementate
+
+### ✔ Animazioni On‑Scroll (IntersectionObserver)
+Ogni sezione entra in scena con:
+- fade‑in  
+- slide‑up  
+- slide‑left / slide‑right (timeline)  
+- reset automatico quando si esce dal viewport  
+
+Le animazioni si ripetono sia in salita che in discesa.
+
+---
+
+### ✔ Timeline Alternata Destra/Sinistra
+La sezione *“La nostra storia”* presenta una timeline con:
+- entrata alternata da sinistra e destra  
+- effetto elegante e dinamico  
+- perfetta leggibilità  
+
+---
+
+### ✔ Cubo News 3D (NewsCube Component)
+Un componente dedicato che mostra le news con:
+- rotazione 3D automatica  
+- 4 facce del cubo → 4 news  
+- navigazione manuale tramite puntini  
+- effetto premium e moderno  
+
+---
+
+## 🧱 Componenti Principali
+
+- **Navbar** — menu superiore responsivo  
+- **Footer** — footer istituzionale  
+- **BackToTop** — pulsante fluttuante  
+- **NewsCube** — cubo 3D con rotazione  
+- **AziendaPage** — pagina aziendale con animazioni on‑scroll e timeline  
+
+---
+
+## 📄 Come Aggiungere il Cubo News nella Home
+
+```tsx
+import NewsCube from "./components/NewsCube";
+
+export default function Home() {
+  return (
+    <>
+      {/* ... altre sezioni ... */}
+      <NewsCube />
+      {/* ... footer ... */}
+    </>
+  );
+}
+🛠 Requisiti
+Node.js 18+
+
+Next.js 14
+
+TailwindCSS configurato
+
+
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+npm run build
+npm start
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📌 Note Importanti
+Tutte le immagini devono essere posizionate in /public/media/
 
-## Learn More
+Le animazioni on‑scroll funzionano grazie a IntersectionObserver
 
-To learn more about Next.js, take a look at the following resources:
+Il cubo 3D richiede due classi globali:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+css
+.perspective-1000 {
+  perspective: 1000px;
+}
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🏢 Autore
+Sito sviluppato da Vincenzo Antonino Lisitano  
+per Istituto di Vigilanza CDS – Costantini Divisione Sicurezza
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 📄 Licenza
+
+Questo progetto è protetto da copyright © 2024 **Vincenzo Antonino Lisitano**.
+
+È vietata la copia, la distribuzione, la modifica o l’utilizzo del codice e dei contenuti presenti in questo repository senza autorizzazione scritta dell’autore.
+
+L’uso non autorizzato, totale o parziale, è perseguibile secondo le normative vigenti in materia di proprietà intellettuale.
+
+Per richieste di utilizzo, collaborazione o concessione di licenza, contattare direttamente:
+
+**Autore:** Vincenzo Antonino Lisitano
