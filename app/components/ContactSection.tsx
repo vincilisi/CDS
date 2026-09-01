@@ -31,30 +31,31 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm leading-relaxed">
             <h2 className="text-lg font-semibold mb-3">CDS S.r.l.</h2>
-            <p>Partita Iva e Codice Fiscale 04884860275</p>
+            <p>Partita IVA e Codice Fiscale 04084580275</p>
             <p>Codice Univoco SUBM70N</p>
-            <p>Registro Imprese C.C.I.A.A. VE 04884860275</p>
-            <p className="mb-4">R.E.A. 364777</p>
+            <p>Registro Imprese e C.C.I.A.A. VE 04084580275</p>
+            <p className="mb-4">R.E.A. 364277</p>
 
             <p className="font-semibold mt-2">
-              Sede Legale, Direzione e Centrale Operativa Venezia
+              Sede legale, amministrativa, operativa e headquarters
             </p>
-            <p>Via Pietro Paleocapa, 4</p>
+            <p>Via Pietro Pinton, 4</p>
             <p>30175 Venezia (VE)</p>
-            <p>Telefono: +39 041 978177</p>
-            <p className="mb-3">Fax: +39 041 935203</p>
+            <p>Telefono: +39 041 978077</p>
+            <p>Fax: +39 041 5053203</p>
+            <p>Centrale: +39 393 9038078</p>
 
             <p className="font-semibold mt-2">Punto operativo Vicenza</p>
-            <p>Via dell’Industria, 73</p>
+            <p>Via dell&apos;Edilizia, 73</p>
             <p className="mb-3">36100 Vicenza</p>
 
             <p className="font-semibold mt-2">Punto operativo Friuli Venezia Giulia</p>
-            <p>P.zza Don G. Savio, 6</p>
-            <p className="mb-3">33054 Lignano UD</p>
+            <p>P.zza Don G. Savoia, 6</p>
+            <p className="mb-3">33040 Lovaria (UD)</p>
 
             <p className="font-semibold mt-2">Punto operativo Lido di Jesolo</p>
             <p>Via G. Leopardi, 15</p>
-            <p>30016 Jesolo VE</p>
+            <p>30016 Jesolo (VE)</p>
           </div>
 
           {/* BLOCCO EMAIL */}
@@ -65,11 +66,11 @@ export default function ContactSection() {
             <ul className="space-y-2">
               <li>
                 <span className="font-semibold">Direzione Generale: </span>
-                <span>direzione@cbvigilarus.it</span>
+                <span>direzione@cdsvigilanza.it</span>
               </li>
               <li>
                 <span className="font-semibold">Amministrazione: </span>
-                <span>amministrazione@cbvigilarus.it</span>
+                <span>amministrazione@cdsvigilanza.it</span>
               </li>
               <li>
                 <span className="font-semibold">Ufficio Personale: </span>

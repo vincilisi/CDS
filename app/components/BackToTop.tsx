@@ -20,8 +20,15 @@ export default function BackToTop() {
         bg-blue-900 text-white text-2xl
         flex items-center justify-center
         shadow-lg transition-all duration-300
-        hover:bg-blue-800 hover:scale-110
+        cursor-pointer
         ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}
+
+        /* HOVER EFFECT */
+        hover:bg-blue-800
+        hover:scale-125
+        hover:-translate-y-1
+        hover:rotate-3
+        hover:shadow-xl hover:shadow-blue-500/40
       `}
     >
       ↑

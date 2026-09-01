@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+//
+// ENUMS
+//
+
+enum ReportStatus {
+  NEW
+  IN_REVIEW
+  WAITING_USER
+  CLOSED
+}
+
+enum MessageAuthor {
+  USER
+  OPERATOR
+}
+
+//
+// SEGNALAZIONI (WHISTLEBLOWING)
+//
+
+model Report {
+  id          Int           @id @default(autoincrement())
+  code        String        @unique
+  title       String
+  description String?
+  attachments String[]      // array di file caricati
+  status      ReportStatus  @default(NEW)
+  messages    Message[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Message {
+  id        Int            @id @default(autoincrement())
+  reportId  Int
+  report    Report         @relation(fields: [reportId], references: [id])
+  author    MessageAuthor
+  text      String
+  createdAt DateTime       @default(now())
+}
+
+//
+// CANDIDATURE
+//
+
+model Application {
+  id          Int       @id @default(autoincrement())
+  fullName    String
+  email       String
+  phone       String?
+  message     String?
+  cvFile      String?   // percorso del file CV
+  createdAt   DateTime  @default(now())
+}
+
+//
+// RICHIESTE DI PREVENTIVO
+//
+
+model QuoteRequest {
+  id          Int       @id @default(autoincrement())
+  fullName    String
+  email       String
+  phone       String?
+  serviceType String    // es: vigilanza, portierato, ispettorato
+  message     String?
+  createdAt   DateTime  @default(now())
+}

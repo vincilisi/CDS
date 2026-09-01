@@ -1,4 +1,5 @@
 import HeroSlider from "./HeroSlider";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -20,18 +21,24 @@ export default function Hero() {
         </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto mb-8">
-          Dal 1995 proteggiamo persone, beni e strutture con servizi di vigilanza armata,
-          tecnologia avanzata e personale altamente qualificato.
+          Operativi a Venezia e in tutto il Veneto dal 2012, proteggiamo persone, beni e
+          strutture con vigilanza armata, tecnologia avanzata e personale qualificato.
         </p>
 
         <div className="flex gap-4 justify-center flex-wrap">
-          <button className="bg-white text-blue-900 px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition">
+          <Link
+            href="/servizi"
+            className="bg-white text-blue-900 px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition"
+          >
             I nostri servizi
-          </button>
+          </Link>
 
-          <button className="border border-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-blue-900 transition">
+          <Link
+            href="/contatti"
+            className="border border-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-blue-900 transition"
+          >
             Richiedi preventivo
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -56,21 +56,8 @@ export default function Navbar() {
         <Link
           href="/contatti"
           className="
-            hidden md:block 
-            px-8 py-3 
-            rounded-xl 
-            font-semibold 
-            tracking-wide 
-            backdrop-blur-lg 
-            bg-white/20 
-            border border-white/40 
-            text-blue-900 
-            shadow-lg 
-            transition-all 
-            duration-300 
-            hover:bg-white/30 
-            hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] 
-            hover:scale-[1.07]
+            hidden border border-[#10293a] px-5 py-2 text-sm font-semibold text-[#10293a]
+            transition hover:bg-[#10293a] hover:text-white md:block
           "
         >
           Richiedi Preventivo
@@ -113,19 +100,8 @@ export default function Navbar() {
           <Link
             href="/contatti"
             className="
-              mt-3 
-              w-full 
-              px-6 py-3 
-              rounded-xl 
-              font-semibold 
-              tracking-wide 
-              bg-blue-900 
-              text-white 
-              shadow-lg 
-              transition-all 
-              duration-300 
-              hover:bg-blue-800 
-              hover:scale-[1.03]
+              mt-3 w-full bg-[#10293a] px-6 py-3 text-center font-semibold text-white
+              transition hover:bg-[#1a4058]
             "
           >
             Richiedi Preventivo

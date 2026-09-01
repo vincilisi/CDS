@@ -8,19 +8,23 @@ import Nave from "../../public/media/cds-portuale.jpg";
 
 export default function ServicesSection() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+    <section className="bg-[#e7ece8] py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 text-center md:px-10">
 
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+        <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#91712f]">
+          Servizi CDS
+        </p>
+
+        <h2 className="mt-4 text-3xl font-bold text-[#142331] md:text-4xl">
           I nostri servizi
         </h2>
 
-        <p className="text-gray-700 max-w-2xl mx-auto mb-16 text-lg">
+        <p className="mx-auto mb-12 mt-5 max-w-2xl text-lg text-slate-700 md:mb-14">
           Soluzioni professionali per la sicurezza di aziende, infrastrutture critiche
           e contesti ad alta sensibilità.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-12 items-stretch place-items-center">
+        <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
 
           <ServiceCard
             image={Piantonamento}
@@ -51,3 +55,4 @@ export default function ServicesSection() {
     </section>
   );
 }
+

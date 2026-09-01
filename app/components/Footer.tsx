@@ -1,144 +1,44 @@
-"use client";
-import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+
+const mapUrl = "https://www.google.com/maps/search/?api=1&query=Via+Pietro+Pinton+4%2C+30175+Venezia";
 
 export default function Footer() {
-  const [openMap, setOpenMap] = useState(false);
-
   return (
-    <>
-      {/* MODAL FULLSCREEN MAP */}
-      {openMap && (
-        <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[999] flex items-center justify-center p-4 animate-fadeIn"
-          onClick={() => setOpenMap(false)}
-        >
-          <div
-            className="relative w-full max-w-4xl h-[70vh] rounded-xl overflow-hidden shadow-2xl animate-zoomIn"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <iframe
-              width="100%"
-              height="100%"
-              loading="lazy"
-              style={{ border: 0 }}
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}&q=Via+Pietro+Pinton+4,+30175+Venezia`}
-            ></iframe>
-
-            <button
-              onClick={() => setOpenMap(false)}
-              className="absolute top-3 right-3 bg-black/60 hover:bg-black/80 text-white px-3 py-1 rounded-md text-sm"
-            >
-              Chiudi
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* FOOTER */}
-      <footer className="bg-[#0d0d0d] text-gray-300 pt-10 pb-6">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
-
-          {/* COLONNA SINISTRA — CONTATTI + LOGHI */}
-          <div className="flex flex-col items-center text-center space-y-6">
-
-            {/* CONTATTI */}
-            <div className="space-y-2 text-[16px] leading-relaxed text-gray-300">
-              <h3 className="text-lg font-semibold text-white mb-2">Contatti</h3>
-              <p>
-                Via Pietro Pinton 4 – 30175 Venezia (VE)<br />
-                Tel: +39 041 978077<br />
-                Fax: +39 041 5053203<br />
-                Centrale: +39 393 9038078<br />
-                Email: ufficio.personale@costantinidivisionesicurezza.it
-              </p>
-            </div>
-
-            {/* LOGHI */}
-            <div className="flex items-center justify-center gap-6 pt-2">
-              <Image
-                src="/media/logo-cds-vigilanza-2019-bianco.png"
-                alt="CDS Vigilanza"
-                width={90}
-                height={45}
-                className="opacity-90 hover:opacity-100 transition"
-              />
-
-              <Image
-                src="/media/20-cds.png"
-                alt="20 anni"
-                width={45}
-                height={45}
-                className="opacity-90 hover:opacity-100 transition"
-              />
-            </div>
-          </div>
-
-          {/* COLONNA DESTRA — INFO + MAPPA */}
-          <div className="flex flex-col items-center text-center space-y-6">
-
-            {/* INFO AZIENDALI */}
-            <div className="space-y-2 text-[16px] leading-relaxed text-gray-300">
-              <h3 className="text-lg font-semibold text-white mb-2">CDS Vigilanza</h3>
-              <p>
-                P.IVA / CF 04084580275<br />
-                Codice Univoco SUBM70N<br />
-                R.E.A. 364277 – C.C.I.A.A. VE<br />
-                Licenza Polizia 298/2001/DIV P.A.<br />
-                Prefettura di Venezia – Helio Costantini<br />
-                Pec: cdsvigilanza@pec.it
-              </p>
-            </div>
-
-            {/* MAPPA PICCOLA */}
-            <div
-              className="relative w-32 h-32 rounded-xl overflow-hidden border border-white/10 backdrop-blur-md bg-white/5 shadow-xl cursor-pointer group"
-              onClick={() => setOpenMap(true)}
-            >
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition"></div>
-
-              <iframe
-                width="100%"
-                height="100%"
-                loading="lazy"
-                style={{ border: 0, pointerEvents: "none" }}
-                referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}&q=Via+Pietro+Pinton+4,+30175+Venezia`}
-                className="opacity-80 group-hover:opacity-100 transition"
-              ></iframe>
-            </div>
-
-          </div>
-
+    <footer className="bg-[#10293a] text-slate-200">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 md:grid-cols-[1.2fr_1fr_0.8fr] md:px-10">
+        <div>
+          <Image src="/media/logo-cds-vigilanza-2019-bianco.png" alt="CDS Vigilanza" width={112} height={56} />
+          <address className="mt-6 not-italic text-sm leading-7 text-slate-300">
+            Via Pietro Pinton 4<br />
+            30175 Venezia (VE)<br />
+            Tel. <a className="transition hover:text-[#e5c988]" href="tel:+39041978077">+39 041 978077</a><br />
+            Centrale <a className="transition hover:text-[#e5c988]" href="tel:+393939038078">+39 393 9038078</a>
+          </address>
         </div>
 
-        {/* LINEA DIVISORIA */}
-        <div className="border-t border-gray-800 mt-10 pt-4 text-center">
-          <p className="text-xs text-gray-500">
-            © 2019 CDS S.R.L. – Tutti i diritti riservati
+        <div>
+          <h2 className="text-sm font-bold uppercase tracking-[0.14em] text-[#e5c988]">CDS Vigilanza</h2>
+          <p className="mt-5 text-sm leading-7 text-slate-300">
+            P.IVA / CF 04084580275<br />
+            R.E.A. 364277 - C.C.I.A.A. VE<br />
+            Licenza di Polizia 3611/2024/I.V./P.A.<br />
+            Prefettura di Venezia - Paola Lazzari<br />
+            <a className="transition hover:text-[#e5c988]" href="mailto:cdsvigilanza@pec.it">cdsvigilanza@pec.it</a>
           </p>
         </div>
-      </footer>
 
-      {/* ANIMAZIONI */}
-      <style jsx global>{`
-        .animate-fadeIn {
-          animation: fadeIn 0.25s ease-out forwards;
-        }
-        .animate-zoomIn {
-          animation: zoomIn 0.25s ease-out forwards;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0 }
-          to { opacity: 1 }
-        }
-        @keyframes zoomIn {
-          from { transform: scale(0.95); opacity: 0 }
-          to { transform: scale(1); opacity: 1 }
-        }
-      `}</style>
-    </>
+        <div>
+          <h2 className="text-sm font-bold uppercase tracking-[0.14em] text-[#e5c988]">Navigazione</h2>
+          <nav className="mt-5 flex flex-col gap-3 text-sm" aria-label="Link del footer">
+            <Link className="transition hover:text-[#e5c988]" href="/azienda">Azienda</Link>
+            <Link className="transition hover:text-[#e5c988]" href="/servizi">Servizi</Link>
+            <Link className="transition hover:text-[#e5c988]" href="/contatti">Contatti</Link>
+            <a className="mt-3 w-fit border border-[#d8b46c] px-4 py-2 font-semibold text-[#f5dfaa] transition hover:bg-[#d8b46c] hover:text-[#10293a]" href={mapUrl} target="_blank" rel="noreferrer">Apri in Google Maps</a>
+          </nav>
+        </div>
+      </div>
+      <div className="border-t border-white/10"><div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-5 text-xs text-slate-400 md:flex-row md:items-center md:justify-between md:px-10"><p>© 2026 CDS S.R.L. - Tutti i diritti riservati</p><Image src="/media/20-cds.png" alt="20 anni CDS Vigilanza" width={44} height={44} /></div></div>
+    </footer>
   );
 }

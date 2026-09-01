@@ -73,33 +73,41 @@ export default function ServicesGrid() {
   ];
 
   return (
-    <section className="relative w-full min-h-screen bg-[url('/media/cds-vigilanza.jpg')] bg-cover bg-center bg-no-repeat py-24 px-6">
-      <div className="absolute inset-0 bg-black/70"></div>
-
-      <div className="relative z-10">
+    <section className="relative min-h-screen w-full bg-[#10293a] px-6 py-16 md:px-10 md:py-24">
+      <div className="relative z-10 mx-auto max-w-7xl">
 
         {/* GRID NORMALE */}
         {!active && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div>
+            <div className="mb-12 max-w-2xl text-white">
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#d8b46c]">Servizi CDS</p>
+              <h1 className="mt-4 text-4xl font-bold md:text-5xl">Sicurezza su misura</h1>
+              <p className="mt-5 text-lg leading-8 text-slate-200">Soluzioni operative e tecnologiche per proteggere persone, beni e infrastrutture.</p>
+            </div>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
-              <div
+              <button
+                type="button"
                 key={s.id}
                 onClick={() => setActive(s)}
-                className="cursor-pointer group rounded-xl overflow-hidden shadow-lg bg-white transition hover:scale-[1.03]"
+                aria-label={`Apri i dettagli del servizio ${s.title}`}
+                className="group cursor-pointer overflow-hidden rounded-xl bg-white text-left shadow-lg transition hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e5c988]"
               >
                 <div className="h-48 w-full relative">
                   <Image
                     src={s.image}
                     alt={s.title}
                     fill
+                    sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
                     className="object-cover group-hover:scale-105 transition"
                   />
                 </div>
                 <div className="p-4 text-center font-semibold text-gray-800">
                   {s.title}
                 </div>
-              </div>
+              </button>
             ))}
+            </div>
           </div>
         )}
 
@@ -121,6 +129,7 @@ export default function ServicesGrid() {
                   src={active.image}
                   alt={active.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 768px"
                   className="object-contain"
                 />
               </div>
